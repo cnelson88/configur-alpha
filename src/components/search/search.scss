@@ -1,0 +1,39 @@
+input {
+    font-family: 'Poppins', sans-serif;
+    
+    width: 60%;
+    padding: 15px;
+    text-align: left;
+
+    border-radius: 10px;
+    border: none;
+}
+
+
+.table {
+    margin-left: auto;
+    margin-right: auto;
+
+    border-collapse: collapse;
+    border-radius: 1em;
+    overflow: hidden;
+
+    tbody {
+        cursor: pointer;
+        background-color: lightgray;
+    }
+
+    th {
+        text-align: left;
+        padding: 30px;
+        background-color: #2BB297;
+    }
+
+    td {
+        padding: 30px;
+    }
+
+    tbody:nth-of-type(odd) {
+        background-color: white;
+    }
+}
