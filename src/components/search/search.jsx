@@ -41,7 +41,6 @@ const Search = () => {
                     placeholder='Please enter a name...'
                     value={searchQuery}
                     onChange={handleChange}
-                    queryResults={queryResults}
                 />
             </Fragment>
         )
