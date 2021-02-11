@@ -4,13 +4,19 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
+    background-color: #FCD31C21;
+    background-image: url(https://www.configur.tech/wp-content/uploads/2020/10/digital_agency_hero_bg_01.png);
 }
 
 .page-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     height: 100vh;
     width: 100vw;
+
+    input {
+        margin: 100px 10px;
+    }
 }

@@ -51,6 +51,7 @@ const Search = () => {
         const casing = e.target.value;
         const casingUpper = casing.charAt(0).toUpperCase() + casing.slice(1);
         setSearchQuery(casingUpper);
+        setQueryResults([]);
     };
 
     const searchResults = () => {
@@ -66,6 +67,7 @@ const Search = () => {
                             <th>Name</th>
                             <th>Username</th>
                             <th>Email</th>
+                            <th>More</th>
                         </tr>
                     </thead>
                     {queryResults.map((item, index) => (
@@ -73,7 +75,8 @@ const Search = () => {
                             <tr>
                                 <td>{item.name}</td>
                                 <td>{item.username}</td>
-                                <td>{item.email}</td>                                
+                                <td>{item.email}</td>    
+                                <td>...</td>                                
                             </tr>
                         </tbody>
                     ))}
