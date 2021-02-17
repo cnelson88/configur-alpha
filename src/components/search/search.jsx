@@ -1,15 +1,14 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import SearchResults from './SearchResults';
 
 import './search.scss';
 
 const Search = () => {
     const [searchQuery, setSearchQuery] = useState('');    
     const [queryResults, setQueryResults] = useState([]);
-    const history = useHistory();
 
     useEffect(() => {
-        setSearchQuery(searchQuery);
+        setSearchQuery(searchQuery);              
     });
 
     useEffect(() => {
@@ -29,73 +28,35 @@ const Search = () => {
             }
         }, 400)
 
-        
         return () => clearTimeout(delay);
     }, [searchQuery]);
 
     const searchInput = () => {
         return (
-            <Fragment>
+            <>
                 <input
                     type='text'
                     placeholder='Please enter a name...'
                     value={searchQuery}
                     onChange={handleChange}
                 />
-            </Fragment>
+            </>
         )
     };
 
     const handleChange = e => {
         const casing = e.target.value;
         const casingUpper = casing.charAt(0).toUpperCase() + casing.slice(1);
+
         setSearchQuery(casingUpper);
         setQueryResults([]);
     };
 
-    const searchResults = () => {
-        if (queryResults.length === 0) {
-            return <p>No results found.</p>;
-        }
-
-        return(
-            <Fragment>
-                <table className='table'>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>More</th>
-                        </tr>
-                    </thead>
-                    {queryResults.map((item, index) => (
-                        <tbody key={index} onClick={renderDetails}>
-                            <tr>
-                                <td>{item.name}</td>
-                                <td>{item.username}</td>
-                                <td>{item.email}</td>    
-                                <td>...</td>                                
-                            </tr>
-                        </tbody>
-                    ))}
-                </table>
-            </Fragment>
-        )
-    };
-
-    const renderDetails = (event) => {
-        history.push({
-            pathname: '/userDetails',
-            state: { user: queryResults }
-        });
-    };
-
     return (
-        <Fragment>
+        <>
             {searchInput()}
-            {searchResults()}
-        </Fragment>
+            {queryResults.length > 0 ? <SearchResults queryResults={queryResults} /> : null}
+        </>
     );
 };
 

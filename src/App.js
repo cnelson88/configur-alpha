@@ -1,7 +1,7 @@
 import { Switch, Route } from 'react-router-dom';
 
 import Home from './pages/home';
-import UserDetails from './pages/userdetails';
+import UserDetails from './components/user-details/UserDetails';
 
 import './app.scss';
 
