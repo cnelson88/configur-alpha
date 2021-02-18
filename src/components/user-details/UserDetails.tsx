@@ -12,6 +12,7 @@ const UserDetails = (queryResults: any) => {
                         <img className='user-container__header--img' src='https://www.configur.tech/wp-content/uploads/2020/12/Staff2.png' />
                         <div className='user-container user-container__info'>
                             <h1>{userDetails.queryResults[0].name}</h1>
+                            <h3><b>Username:</b> {userDetails.queryResults[0].username}</h3>
                             <h3><b>Phone:</b> {userDetails.queryResults[0].phone}</h3>
                             <img src='https://www.configur.tech/wp-content/uploads/2020/12/Squiggles1.png' />
                             <h3><b>Email:</b> {userDetails.queryResults[0].email}</h3>
