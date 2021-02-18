@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Input = styled.input`
     font-family: 'Poppins', sans-serif;
-    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 20px 3px rgb(0 0 0 / 20%);
     
     width: 60%;
     padding: 15px;

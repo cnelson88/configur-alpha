@@ -15,9 +15,17 @@ body {
     justify-content: center;
     padding: 50px;
     width: 100vw;
-    margin-top: 80px;
+
+    &__header {
+        height: 20px;
+        box-shadow: 3px 3px 20px 3px rgb(0 0 0 / 20%);
+        background-color: #ffffff;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+    }
 
     input {
-        margin: 100px 10px;
+        margin: 150px 10px 100px 10px;
     }
 }
