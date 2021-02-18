@@ -1,40 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import SearchResults from './SearchResults';
+import DefaultData from './DefaultData';
 
-import './search.scss';
+import { Input } from '../styles/input';
 
 const Search = () => {
-    const [searchQuery, setSearchQuery] = useState('');    
-    const [queryResults, setQueryResults] = useState([]);
+    const [searchQuery, setSearchQuery] = useState<string>('');    
+    const [queryResults, setQueryResults] = useState<Array<string | number>>([]);
 
     useEffect(() => {
         setSearchQuery(searchQuery);              
     });
 
     useEffect(() => {
-        const delay = setTimeout(() => {
             if (searchQuery.length > 0) {
                 const apiUrl = 'https://jsonplaceholder.typicode.com/users';
                 
                 fetch(apiUrl)
                     .then((response) => response.json())
                     .then((response) => {
-                        response.filter(value => {
+                        response.filter((value: any) => {
                             if(value.name.includes(searchQuery)) {
-                                return setQueryResults([...queryResults, value]);
+                                return setQueryResults([ ...queryResults, value ]);
                             }
                         })    
                     });
             }
-        }, 400)
-
-        return () => clearTimeout(delay);
     }, [searchQuery]);
 
     const searchInput = () => {
         return (
             <>
-                <input
+                <Input
                     type='text'
                     placeholder='Please enter a name...'
                     value={searchQuery}
@@ -44,7 +41,7 @@ const Search = () => {
         )
     };
 
-    const handleChange = e => {
+    const handleChange = (e: any) => {
         const casing = e.target.value;
         const casingUpper = casing.charAt(0).toUpperCase() + casing.slice(1);
 
@@ -55,7 +52,7 @@ const Search = () => {
     return (
         <>
             {searchInput()}
-            {queryResults.length > 0 ? <SearchResults queryResults={queryResults} /> : null}
+            {queryResults.length > 0 ? <SearchResults queryResults={queryResults} /> : <DefaultData />}
         </>
     );
 };

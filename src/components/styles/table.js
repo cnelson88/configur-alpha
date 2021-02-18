@@ -1,17 +1,6 @@
-input {
-    font-family: 'Poppins', sans-serif;
-    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2);
-    
-    width: 60%;
-    padding: 15px;
-    text-align: left;
+import styled from 'styled-components';
 
-    border-radius: 10px;
-    border: none;
-}
-
-
-.table {
+const Table = styled.table`
     margin-left: auto;
     margin-right: auto;
 
@@ -20,7 +9,6 @@ input {
     overflow: hidden;
 
     tbody {
-        cursor: pointer;
         background-color: lightgray;
     }
 
@@ -37,4 +25,9 @@ input {
     tbody:nth-of-type(odd) {
         background-color: white;
     }
-}
+
+    .row-click {
+        cursor: pointer;
+    }
+`
+export { Table };

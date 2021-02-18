@@ -1,7 +1,7 @@
 import React from 'react';
 import Search from '../components/search/Search';
-
 import Logo from '../images/logo.png';
+
 import './home.scss';
 
 const Home = () => {

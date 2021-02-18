@@ -1,13 +1,11 @@
-import React from 'react';
+import { Grid } from '../styles/grid';
 
-import './userdetails.scss';
-
-const UserDetails = queryResults => {
+const UserDetails = (queryResults: any) => {
     const userDetails = queryResults.queryResults;
 
     const userinfo = () => {
         return (
-            <>
+            <Grid>
                 <div className='user-container'>
                     <div className='user-container user-info-header'>
                         <h1>{userDetails.queryResults[0].name}</h1>
@@ -32,7 +30,7 @@ const UserDetails = queryResults => {
                         </div>
                     </div>
                 </div>
-            </>
+            </Grid>
         )
     }
 

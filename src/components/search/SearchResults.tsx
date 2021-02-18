@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-
 import UserDetails from '../user-details/UserDetails';
+import { Table } from '../styles/table';
 
-const SearchResults = queryResults => {
-    const [userInfo, setUserInfo] = useState(false);
+const SearchResults = (queryResults: any) => {
+    const [userInfo, setUserInfo] = useState<Boolean>(false);
 
     if (queryResults.length === 0) {
         return <p>No results found.</p>;
@@ -12,7 +12,7 @@ const SearchResults = queryResults => {
     const results = () => {
         return (
             <>
-                <table className='table'>
+                <Table className='table'>
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -21,17 +21,17 @@ const SearchResults = queryResults => {
                             <th>More</th>
                         </tr>
                     </thead>
-                    {queryResults.queryResults.map((item, index) => (
+                    {queryResults.queryResults.map((item: any, index: any) => (
                         <tbody key={index} >
-                            <tr onClick={handleClick}>
+                            <tr>
                                 <td>{item.name}</td>
                                 <td>{item.username}</td>
                                 <td>{item.email}</td>    
-                                <td>...</td>                                
+                                <td className='row-click' onClick={handleClick}>...</td>                                
                             </tr>
                         </tbody>
                     ))}
-                </table>
+                </Table>
             </>
         )
     }
