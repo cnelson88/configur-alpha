@@ -22,6 +22,8 @@ const Search = () => {
                         response.filter((value: any) => {
                             if(value.name.includes(searchQuery)) {
                                 return setQueryResults([ ...queryResults, value ]);
+                            } else if (value.username.includes(searchQuery)) {
+                                return setQueryResults([ ...queryResults, value ]);
                             }
                         })    
                     });
@@ -36,7 +38,8 @@ const Search = () => {
                     placeholder='Please enter a name...'
                     value={searchQuery}
                     onChange={handleChange}
-                />
+                    onFocus={clearInput}
+                />       
             </>
         )
     };
@@ -48,6 +51,10 @@ const Search = () => {
         setSearchQuery(casingUpper);
         setQueryResults([]);
     };
+
+    const clearInput = () => {
+        setSearchQuery('');
+    }
 
     return (
         <>

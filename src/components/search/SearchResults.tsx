@@ -18,6 +18,8 @@ const SearchResults = (queryResults: any) => {
                             <th>Name</th>
                             <th>Username</th>
                             <th>Email</th>
+                            <th>Phone</th>
+                            <th>Website</th>
                             <th>More</th>
                         </tr>
                     </thead>
@@ -27,6 +29,8 @@ const SearchResults = (queryResults: any) => {
                                 <td>{item.name}</td>
                                 <td>{item.username}</td>
                                 <td>{item.email}</td>    
+                                <td>{item.phone}</td>
+                                <td>{item.website}</td>  
                                 <td className='row-click' onClick={handleClick}>...</td>                                
                             </tr>
                         </tbody>

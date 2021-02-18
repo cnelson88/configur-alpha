@@ -13,7 +13,7 @@ const DefaultData = () => {
 
     const getData = async() => {
         const res = await axios.get('https://jsonplaceholder.typicode.com/users');
-        const data = res.data;
+        const data = res.data;  
         const slice = data.slice(offset, offset + perPage);
         const postData = 
                     <Table className='table table__default'>
@@ -26,9 +26,9 @@ const DefaultData = () => {
                                 <th>Website</th>
                             </tr>
                         </thead>
-                        {slice.map(pd => 
+                        {slice.map((pd, key) => 
                         <tbody>
-                            <tr>
+                            <tr key={key}>
                                 <td>{pd.name}</td>
                                 <td>{pd.username}</td>
                                 <td>{pd.email}</td>
@@ -44,7 +44,7 @@ const DefaultData = () => {
 
     useEffect(() => {
         getData()
-      }, [offset])
+    }, [offset])
 
     const handlePageClick = e => {
         const selectedPage = e.selected;
